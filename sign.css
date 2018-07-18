@@ -1,0 +1,31 @@
+body {
+    background-image:url("https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    font-family: "Segoe UI",sans-serif;
+
+}
+.login {
+
+ width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+	position:relative;
+background:rgba(128,0,0,0.5);
+
+	margin-top: 150px;
+   
+    padding: 1rem;
+   
+    border-radius: 4px;
+}
+.log
+{
+	position: relative;
+	margin-top: 9910px;
+}
+
+a{
+    color:black;
+}
+
+
+

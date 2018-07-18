@@ -1,14 +1,14 @@
 <?php
 	$msg="";
-	include("include/settings1.php");
-	include("include/check_session.php");
+	include("../include/settings1.php");
+	include("../include/check_session.php");
 	$email=$_SESSION["userEmail"];
 	if(isset($_POST["btnUpdate"]))
 	{
 
 		if(($_POST["email"]!=null) && ($_POST["pass"]!=null) && ($_POST["txtNewPassword"]!=null) && ($_POST["txtConfirmPassword"]!=null))
 		{
-			$sql=$mysqli->prepare("select pass from login where email=?");
+			$sql=$mysqli->prepare("select pass from signup where email=?");
 			$sql->bind_param("s",$_SESSION["userEmail"]);
 			$sql->execute();
 			$sql->bind_result($Pass);
@@ -17,7 +17,7 @@
 				if($_POST["txtNewPassword"]== $_POST["txtConfirmPassword"])
 					{					
 						$sql->close();
-						$sql=$mysqli->prepare("update login set pass=?  where email=?");
+						$sql=$mysqli->prepare("update signup set pass=?  where email=?");
 						$sql->bind_param("ss",$_POST["txtNewPassword"],$email);
 						$sql->execute();
 						$sql->close();
@@ -44,15 +44,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Change Password</title>
+<style>
+body{
+    background-size: cover;
+}
+.t1{
+background:rgb(0,0,128,0.2);
+margin-top: 180px;
+border:2px solid;
+
+
+
+}
+
+
+</style>
 </head>
-<body>
-<table align="center">
+<body background="https://images.pexels.com/photos/697059/pexels-photo-697059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+<table align="center" cellspacing="10" cellpadding="10" class="t1">
 	<tr>
     	<td>
             <fieldset>
-           		 <legend align="center">Change Password</legend>
+           		 <legend align="center"><b><i>Change Password</i></b></legend>
                 	<form action="" method="post">
-                        <table align="center">
+                        <table align="center" cellspacing="10">
                         <tr>
                               <td colspan="2" align="center">
                                     <font size="+2" color="#FF0000">
@@ -64,7 +79,7 @@
                			 </tr>
                          <tr>
                                 <td>
-                                    Email:
+                                   <b> Email:</b>
                                 </td>
                                 <td>
                                      <input type="email" name="email" readonly value="<?php echo $_SESSION["userEmail"]?>" />
@@ -72,7 +87,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Password:
+                                   <b> Password:</b>
                                 </td>
                                 <td>
                                     <input type="password" name="pass" required title="Enter the Password"/>
@@ -80,7 +95,7 @@
                             </tr>
                              <tr>
                                 <td>
-                                    New Password:
+                                   <b> New Password:</b>
                                 </td>
                                 <td>
                                     <input type="password" name="txtNewPassword" required title="Enter the New Password"/>
@@ -88,7 +103,7 @@
                             </tr>
                              <tr>
                                 <td>
-                                    Confirm Password:
+                                   <b> Confirm Password:</b>
                                 </td>
                                 <td>
                                     <input type="password" name="txtConfirmPassword" required title="Enter the Password to be confirmed"/>
