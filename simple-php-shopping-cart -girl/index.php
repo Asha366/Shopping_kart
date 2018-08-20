@@ -3,6 +3,10 @@ session_start();
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 if(!empty($_GET["action"])) {
+ if(isset($_SESSION['userId']))
+{
+
+
 switch($_GET["action"]) {
 	case "add":
 		if(!empty($_POST["quantity"])) {
@@ -42,6 +46,12 @@ switch($_GET["action"]) {
 	break;	
 }
 }
+else
+{
+	header('location:..\login.php');
+}
+}
+
 ?>
 <HTML>
 <HEAD>
@@ -104,6 +114,8 @@ switch($_GET["action"]) {
                 <li class="nav-item"><a class="nav-link link" href="../contactus/formpage.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Us<b></a></li>
 
                  <li class="nav-item"><a class="nav-link link" href="../feedback/feedback.php"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Feedback<b></a></li>
+
+                 	<li class="nav-item nav-btn"><a class="nav-link btn btn-black btn-black-outline" href="../logout.php">Logout</a></li>
                 <!---------------------------------login----------------------->
                </ul>
 

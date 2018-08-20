@@ -30,14 +30,16 @@ $mail->Host = "smtp.gmail.com";
 $mail->Port = 587; // or 587
 $mail->IsHTML(true);
 $mail->Username = "ashathakur366@gmail.com";
-$mail->Password = "asha123@";
+$mail->Password = "";
 //$mail->SetFrom("abc@gmail.com");
 $mail->Subject = "Contact Us query";
 $mail->Body = "<b>User's contact us query: ".$_POST["message"]."</b>";
 
 
-$mail->AddAddress($_POST["email"]);      //mail address of sender
+$mail->AddAddress($_POST["email"]);  
+    //mail address of sender
 
+//$mail->AddAddress("ashathakur366@gmail.com"); 
 if(!$mail->Send())
 {
     echo "Mailer Error: " . $mail->ErrorInfo;

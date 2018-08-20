@@ -31,7 +31,7 @@ $mail->Host = "smtp.gmail.com";
 $mail->Port = 587; // or 587
 $mail->IsHTML(true);
 $mail->Username = "ashathakur366@gmail.com";
-$mail->Password = "asha123@";
+$mail->Password = "";
 //$mail->SetFrom("abc@gmail.com");
 $mail->Subject = "Feedback query";
 $mail->Body = "<b>User's feedback query: ".$_POST["feedback"]."</b>";

@@ -25,7 +25,7 @@ $mail->Host = "smtp.gmail.com";
 $mail->Port = 587; // or 587
 $mail->IsHTML(true);
 $mail->Username = ("ashathakur366@gmail.com");
-$mail->Password = ("asha123@");
+$mail->Password = ("");
 //$mail->SetFrom("abc@gmail.com");
 $mail->Subject = "Reset password";
 $mail->Body = "your password is:".$password."</b>"; 
